@@ -1,0 +1,6 @@
+---
+#- name: Installing sso_server_client
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - sso_server_client

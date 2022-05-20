@@ -1,0 +1,19 @@
+---
+#- name: Installing required components for automation
+- hosts: vm751cb2012
+  roles:
+    - reboot_server
+    - winupdate_service_start
+   # - winupdate
+    - install_WMF5.1
+   # - winupdate_critical
+   # - winupdate_security
+   # - winupdate_service_stop_disable
+   # - reboot_server
+
+
+
+
+
+
+  

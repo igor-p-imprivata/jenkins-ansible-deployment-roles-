@@ -1,0 +1,18 @@
+---
+#- name: Installing required components for automation
+- hosts: vm76a
+  roles:
+    - reboot_server
+    - winupdate_service_start
+    - winupdate
+   # - winupdate_critical
+   # - winupdate_security
+    - winupdate_service_stop_disable
+    - reboot_server
+
+
+
+
+
+
+  

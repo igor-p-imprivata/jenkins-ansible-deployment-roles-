@@ -1,0 +1,6 @@
+---
+#- name: Installing python 3.6 (32)
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - install_python

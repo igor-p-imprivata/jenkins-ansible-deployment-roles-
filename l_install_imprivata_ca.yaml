@@ -1,0 +1,7 @@
+---
+#- name: Dowload Imprivata Root CA
+#- hosts: "{{ all }}"
+- hosts:  all
+  gather_facts: no
+  roles:
+    - l.install_root_certs

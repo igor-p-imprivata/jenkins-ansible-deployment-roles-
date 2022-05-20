@@ -1,0 +1,12 @@
+---
+#- name: Installing required components for automation
+#- hosts: vm751cb
+- hosts: "{{ host }}"
+  roles:
+    - chocolatey_install      
+    - install_python
+  # - update_path
+   #- reboot_server
+    - copy_file
+    - install_freesshd  
+    - reboot_server

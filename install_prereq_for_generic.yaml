@@ -1,0 +1,30 @@
+---
+#- name: Installing required components for automation
+#- hosts: vm751cb
+- hosts: "{{ host }}"
+  roles:
+    # - reboot_server
+    - no_shutdown_prompt
+    - winupdate_service_stop_disable
+    - no_auto_tray
+    - server_manager_golbal
+    - server_manager_user
+    #- reset_computer_password_service
+    #- target_dir
+    #- copy_sources
+    #- vm_horizon_upload
+    - chocolatey_install
+    - install_python
+    - update_path
+    - reboot_server
+    - copy_file
+    - install_freesshd
+    #- vm_horizon_upload
+    # - vm_broker_upload
+    # - vmware_powercli_install
+    # - vm_hv_helper_copy
+    # - vmbroker_shell_1
+    - reboot_server
+    # - vmbroker_shell_2
+    # - reboot_server
+  #  - install_rds

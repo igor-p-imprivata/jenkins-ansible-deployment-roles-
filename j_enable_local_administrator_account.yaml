@@ -1,0 +1,8 @@
+---
+#- name: Installing required components for automation
+#- hosts: "{{ all }}"
+- hosts:  all
+  gather_facts: no
+  roles:
+    - local-admin-enable
+    #- winupdate_service_stop_disable  

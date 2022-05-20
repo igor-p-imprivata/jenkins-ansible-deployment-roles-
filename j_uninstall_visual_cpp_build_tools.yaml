@@ -1,0 +1,6 @@
+---
+#- name: UN-Install visualcpp build tools
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - k.uninstall_visual_cpp_build_tools

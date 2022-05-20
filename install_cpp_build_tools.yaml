@@ -1,0 +1,8 @@
+---
+#- name: Installing required components for automation
+- hosts: "{{ host }}"
+  roles:
+    # - reboot_server
+    - chocolatey_install
+    - install_visual_cpp_build_tools  
+    - reboot_server

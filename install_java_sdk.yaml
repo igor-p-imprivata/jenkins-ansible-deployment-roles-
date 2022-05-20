@@ -1,0 +1,6 @@
+---
+#- name: Installing sso_server_client
+- hosts: "{{ host }}"
+  roles:
+    - java_installer_upload
+    - install_jdk

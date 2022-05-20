@@ -1,0 +1,13 @@
+---
+#- name: Installing required components for automation
+#- hosts: vm751cb
+- hosts: "{{ host }}"
+  roles:
+     - WSManCredSSP
+     - install_vmware_powercli_module
+     - vm_hv_helper_copy
+     - unblock_vmware_hv_helper_directory
+     - enable_PSRemoting
+     - set_wsman_trusted_hosts
+     - set_powercli_configuration
+     - reboot_server     

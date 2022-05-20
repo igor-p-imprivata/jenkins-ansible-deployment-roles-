@@ -1,0 +1,6 @@
+---
+#- name: Reboot Server
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - k.download_set_brocker_desktop_group_script

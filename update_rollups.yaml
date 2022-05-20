@@ -1,0 +1,35 @@
+- hosts: "{{host}}"
+  tasks:
+#  - name: Update additional software
+#    win_chocolatey:
+#      name: all
+#      state: latest
+#    tags: choco
+
+  - name: Create directory
+    win_file:
+      path: C:\Staging\Logs
+      state: directory
+
+  - name:  Starting and enabling Windows Update Service
+    win_service:
+      name: wuauserv
+      state: started
+      start_mode: manual    
+    tags: win
+
+  - name: Install Windows updates
+    win_updates:
+      category_names:
+        - UpdateRollups      
+      log_path: C:\Staging\Logs\win_updates.log
+      reboot: yes
+      state: installed
+    tags: win
+
+  - name:  Stopping and disablind Windows Update Service
+    win_service:
+      name: wuauserv
+      state: stopped
+      start_mode: disabled
+    tags: win

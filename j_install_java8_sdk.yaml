@@ -1,0 +1,7 @@
+---
+#- name: Installing JDK8
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - k.java8_installer_upload
+    - k.install_jdk8

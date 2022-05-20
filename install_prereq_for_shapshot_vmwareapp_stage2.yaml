@@ -1,0 +1,13 @@
+---
+#- name: Installing required components for automation
+#- hosts: vm751cb
+- hosts: "{{ host }}"
+  roles:
+    # - reboot_server
+    #- install_winbuildtools2019
+    - install_visualstudio2019_buildtools
+    - install_python
+  # - update_path
+   #- reboot_server
+    - copy_file
+    - reboot_server

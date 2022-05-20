@@ -1,0 +1,5 @@
+---
+#- name: Installing sso_tomcat_webapp
+- hosts: "{{ host }}"
+  roles:
+    - sso_tomcat_webapp

@@ -1,0 +1,8 @@
+---
+#- name: Dowload Oracle Java11 installer
+#- hosts: "{{ all }}"
+- hosts:  all
+  gather_facts: no
+  roles:
+    - download-oracle-java-11-installer
+    #- winupdate_service_stop_disable  

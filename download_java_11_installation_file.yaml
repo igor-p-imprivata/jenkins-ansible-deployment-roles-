@@ -1,0 +1,6 @@
+---
+#- name: Installing required components for automation
+- hosts: "{{ host }}"
+  gather_facts: no
+  roles:
+    - download-oracle-java-11-installer

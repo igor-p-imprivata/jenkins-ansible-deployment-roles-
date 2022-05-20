@@ -1,0 +1,7 @@
+---
+#- name: Installing required components for automation
+- hosts: "{{ host }}"
+  gather_facts: no
+  roles:
+    - desktop_ini_file_attr
+    - winupdate_service_stop_disable  

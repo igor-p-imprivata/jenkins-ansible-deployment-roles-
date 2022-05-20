@@ -1,0 +1,7 @@
+---
+#- name: Disable Windows autoupdates
+- hosts: "{{ host }}"
+  gather_facts: no
+  roles:
+    - auto_update_windows10_disable
+    - winupdate_service_stop_disable  

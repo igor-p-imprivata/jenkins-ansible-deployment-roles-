@@ -1,0 +1,6 @@
+---
+#- name: UN-Install visualstudio_2019 build tools
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - k.uninstall_visualstudio2019_buildtools

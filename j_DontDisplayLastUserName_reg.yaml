@@ -1,0 +1,8 @@
+---
+#- name: DontDisplayLastUserName_reg
+#- hosts: "{{ host }}"
+- hosts: all
+  gather_facts: no
+  roles:
+    - DontDisplayLastUserName_reg
+      #    - winupdate_service_stop_disable  

@@ -1,0 +1,10 @@
+---
+#- name: Installing required components for automation
+- hosts: "{{ host }}"
+  gather_facts: no
+  roles:
+    - chocolatey_install
+      #- install_visual_cpp_build_tools 
+    - install_visualstudio2019_buildtools  
+    - reboot_server
+    - winupdate_service_stop_disable  

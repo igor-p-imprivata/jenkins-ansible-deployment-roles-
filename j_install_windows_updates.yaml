@@ -1,0 +1,9 @@
+---
+#- name: Install Windows Updates
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - winupdate_service_start
+    - k.windows_updates
+    - winupdate_service_stop_disable
+    - reboot_server

@@ -1,0 +1,36 @@
+---
+#- name: Installing required components for automation
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+     - winupdate_service_start
+     - k.windows_updates
+     - winupdate_service_stop_disable
+     - reboot_server
+     - WSManCredSSP
+     - no_shutdown_prompt
+     - winupdate_service_stop_disable
+     - no_auto_tray
+     - server_manager_golbal
+     - chocolatey_install
+     - install_python
+     - update_path
+     - reboot_server
+     - copy_file
+     - install_freesshd
+     - k.download_set_brocker_desktop_group_script
+     - reset_computer_password_service
+     - reboot_server
+     - winupdate_service_start
+     - k.windows_updates
+     - winupdate_service_stop_disable
+     - reboot_server
+
+       #- reset_computer_password_service 
+       #- install_vmware_powercli_module
+       #- vm_hv_helper_copy
+       #- unblock_vmware_hv_helper_directory
+       #- enable_PSRemoting
+       #- set_wsman_trusted_hosts
+       #- set_powercli_configuration
+       #- reboot_server 

@@ -1,0 +1,134 @@
+# -*- coding: utf-8 -*-
+
+
+# Group Policies: https://msdn.microsoft.com/en-us/library/ms815238.aspx
+
+- hosts: "{{host}}"
+  gather_facts: no
+  tasks:
+
+#  - name: Copy ConfigureRemotingForAnsible.ps1 to system
+#    win_copy:
+#      src: ConfigureRemotingForAnsible.ps1
+#      dest: C:\Crombeen\ConfigureRemotingForAnsible.ps1
+#    tags: winrm
+
+#  - name: Configure WinRM from daily scheduled task
+#    win_scheduled_task:
+#      name: ConfigureRemotingForAnsible
+#      description: Run ConfigureRemotingForAnsible.ps1
+#      start_when_available: yes
+#      multiple_instances: 2
+#      hidden: yes
+#      enabled: yes
+#      actions:
+#      - path: powershell.exe
+#        working_directory: C:\Crombeen\
+#        arguments: -ExecutionPolicy Bypass -File "C:\Crombeen\ConfigureRemotingForAnsible.ps1" -CertValidityDays 3650 -EnableCredSSP -ForceNewSSLCert
+#      triggers:
+#      - type: boot
+#      - type: daily
+#        start_boundary: '2017-10-09T09:00:00'
+#      username: NT AUTHORITY\SYSTEM
+#      wake_to_run: yes
+#    tags: winrm
+
+#  - name: Copy CleanupUserAccount.ps1 to system
+#    win_copy:
+#      src: CleanupUserAccount.ps1
+#      dest: C:\Crombeen\CleanupUserAccount.ps1
+#    tags: cleanuser
+
+#  - name: Clean up shared account from login scheduled task
+#    win_scheduled_task:
+#      name: CleanupUserAccount
+#      description: Run CleanupUserAccount.ps1
+#      start_when_available: yes
+#      multiple_instances: 2
+#      hidden: yes
+#      enabled: yes
+#      actions:
+#      - path: powershell.exe
+#        working_directory: C:\Crombeen\
+#        arguments: -WindowStyle Minimized -ExecutionPolicy Bypass -File "C:\Crombeen\CleanupUserAccount.ps1"
+#      triggers:
+#      - type: logon
+#        user_id: '{{ inventory_hostname|upper }}\leerling'
+#      username: '{{ inventory_hostname|upper }}\leerling'
+#      wake_to_run: yes
+#    ignore_errors: yes
+#    tags: cleanuser
+
+#  - name: Log out user leerling after 15 mins
+#    win_scheduled_task:
+#      name: LogOffIdleUser
+#      description: Log off idle user
+#      start_when_available: yes
+#      multiple_instances: 2
+#      hidden: yes
+#      enabled: yes
+#      actions:
+#      - path: shutdown.exe
+#        working_directory: C:\Crombeen\
+#        arguments: /l
+#      triggers:
+#      - type: idle
+#        user_id: '{{ inventory_hostname|upper }}\leerling'
+#      username: '{{ inventory_hostname|upper }}\leerling'
+#      wake_to_run: yes
+#    ignore_errors: yes
+#    tags: cleanuser, logoffuser
+
+#  - name: Run ConfigureRemotingForAnsible.ps1
+#    win_shell:
+#      Powershell.exe -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\Crombeen\ConfigureRemotingForAnsible.ps1" -CertValidityDays 3650 -EnableCredSSP -ForceNewSSLCert
+#    register: winrm
+#    async: 45
+#    poll: 5
+#    tags: run-winrm
+#
+#  - name: Wait for WinRM
+#    async_status: jid={{ winrm.ansible_job_id }}
+#    register: job_result
+#    until: job_result.finished
+#    retries: 30
+
+  - name: Registry configuration for ictadmin
+    win_regedit:
+      path: '{{ item.path }}'
+      name: '{{ item.name }}'
+      data: '{{ item.data|default(None) }}'
+      type: '{{ item.type|default("dword") }}'
+      state: '{{ item.state|default("present") }}'
+    with_items:
+
+
+
+
+    # Turn off UAC for Admin
+    - path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+      name: ConsentPromptBehaviorAdmin
+      data: 5
+      type: dword
+            
+
+#    # become_user: '{{ user }}'
+#    become_user: System
+#    become_flags: logon_type=network
+    ignore_errors: yes
+    tags:
+    - registry
+    - userregistry
+
+
+#  - name: Disable hibernate option (removes hibernation file hiberfil.sys)
+#    win_shell: |
+#      powercfg.exe -h off
+#    tags: power
+
+
+#  - name: Set lock timeout to 90 minutes
+#    win_shell: |
+#      powercfg.exe /SETACVALUEINDEX SCHEME_CURRENT SUB_VIDEO VIDEOCONLOCK 60
+#      powercfg.exe /SETACTIVE SCHEME_CURRENT
+#    tags: power

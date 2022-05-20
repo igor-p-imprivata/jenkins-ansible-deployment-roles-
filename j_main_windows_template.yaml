@@ -1,0 +1,13 @@
+---
+#- import_playbook: update_critical.yaml
+#- import_playbook: update_security.yaml
+#- import_playbook: update_rollups.yaml
+- import_playbook: config_hostname.yaml
+- import_playbook: remove_onedrive.yaml  
+- import_playbook: install_prereq_for_win_template.yaml
+#- import_playbook: install_java_sdk.yaml
+- import_playbook: install_password_finder_and_sso.yaml
+- import_playbook: transfer_fingerprints_to_template.yaml  
+- import_playbook: disable_save_browser_password_win_template.yaml  
+- import_playbook: disable_auto_updates_win_template.yaml  
+- import_playbook: install_visualstudio2019_buildtools.yaml  

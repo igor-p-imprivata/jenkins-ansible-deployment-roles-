@@ -1,0 +1,6 @@
+---
+#- name: Install visualcpp build tools
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - k.install_visual_cpp_build_tools

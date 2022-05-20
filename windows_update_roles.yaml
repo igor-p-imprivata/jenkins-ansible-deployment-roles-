@@ -1,0 +1,42 @@
+---
+- name: Installing required components for automation
+  hosts: vm76a
+  roles:
+
+    - name: reboot server
+      win_reboot:
+
+    - name:  Starting and enabling Windows Update Service
+      win_service:
+        name: wuauserv
+        state: started
+        start_mode: manual
+
+    - name:
+      win_updates:
+        category_names:
+          - SecurityUpdates
+#          - CriticalUpdates
+#          - UpdateRollups
+#        reboot: yes
+#        reboot_timeout: 4000
+        debugger: on_failed
+
+    - name:
+      win_updates:
+        category_names:
+#          - SecurityUpdates
+          - CriticalUpdates
+#          - UpdateRollups
+#        reboot: yes
+#        reboot_timeout: 4000
+        debugger: on_failed
+
+    - name:  Stopping and disablind Windows Update Service
+      win_service:
+        name: wuauserv
+        state: stopped
+        start_mode: disabled
+
+    - name: reboot server
+      win_reboot:

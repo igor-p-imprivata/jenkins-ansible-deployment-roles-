@@ -1,0 +1,8 @@
+---
+#- name: Installing required components for automation
+#- hosts: vm751cb
+- hosts: "{{ host }}"
+  roles:
+    - field_windows_telegraf_service
+    - field_windows_telegraf_service_install
+    - field_windows_telegraf_service_start

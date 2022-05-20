@@ -1,0 +1,8 @@
+---
+#- name: Uploading fingerprints to template
+#- hosts: "{{ host }}"
+- hosts: all
+  gather_facts: no
+  roles:
+    - upload_fingerprints
+
