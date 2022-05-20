@@ -1,0 +1,6 @@
+---
+# tasks file for copy_sources
+- name: Copy required installation media to target
+  win_copy:
+    src: files/Modules/
+    dest: C:\Program Files\WindowsPowerShell\Modules

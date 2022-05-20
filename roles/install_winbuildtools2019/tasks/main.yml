@@ -1,0 +1,11 @@
+---
+# tasks file for install_winbuildtools2019
+- name: Install Windows build tools 2019
+  win_chocolatey:
+    name: visualstudio2019buildtools
+    version: '16.7.0.0'
+    #architecture: x86
+    state: present
+    ##source: http://10.153.138.155/chocolatey/Packages
+    # force: yes
+
