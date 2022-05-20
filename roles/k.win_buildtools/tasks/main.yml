@@ -1,0 +1,88 @@
+---
+
+- name: Create local directory
+  win_file:
+    path: "{{ win_local_dir }}"
+    state: directory
+
+- name: Install windows features
+  win_feature:
+    name: "{{ install_windows2016_features }}"
+    state: absent
+
+- name: Install_chocolatey
+  win_chocolatey:
+    name: "chocolatey"
+  register: download_choco
+  until: download_choco is succeeded
+  retries: 4
+  delay: 5
+
+#  https://github.com/ansible/ansible/issues/53971
+- name: disable win_chocolatey_feature useEnhancedExitCodes
+  win_chocolatey_feature:
+    name: useEnhancedExitCodes
+    state: disabled
+  failed_when: false
+
+- name: Uninstall choco packages
+  win_chocolatey:
+    name: "{{ uninstall_choco_packages }}"
+    state: absent
+    force: true
+
+- name: Install config file for visualstudio2015
+  when: toolset == 'msvc-14.0'
+  win_copy:
+    src: AdminDeployment.xml
+    dest: "{{ win_local_dir }}/AdminDeployment.xml"
+
+- name: Install visualstudio2015community
+  when: toolset == 'msvc-14.0'
+  async: 7200
+  poll: 30
+  win_chocolatey:
+    name: "{{ msvc2015_choco_package }}"
+    force: true
+    package_params: '--AdminFile {{ win_local_dir }}/AdminDeployment.xml'
+    timeout: 7200
+
+- name: Install .NET Framework Core
+  when: toolset == 'msvc-14.1'
+  win_feature:
+    name: 'NET-Framework-45-Core'
+    state: present
+  register: dotnet
+
+- name: Reboot
+  when: dotnet.changed
+  win_reboot:
+    reboot_timeout: 3600
+  tags:
+    - skip_ansible_lint
+
+- name: Determine choco_packages for VS2017
+  when: toolset == 'msvc-14.1'
+  set_fact:
+    choco_packages: "{{ msvc2017_choco_packages }}"
+
+- name: Determine choco_packages for VS2019
+  when: toolset == 'msvc-14.2'
+  set_fact:
+    choco_packages: "{{ msvc2019_choco_packages }}"
+
+- name: Install win_buildtools_choco packages
+  async: 4000
+  poll: 60
+  win_chocolatey:
+    name: "{{ item }}"
+    state: "{{ win_package_state }}"
+    force: "{{ win_package_force }}"
+    allow_multiple: true
+    timeout: 7200
+  loop:
+    - "{{ win_buildtools_choco }}"
+  retries: 3
+  delay: 5
+  tags:
+    - vstools

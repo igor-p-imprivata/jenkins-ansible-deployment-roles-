@@ -1,0 +1,11 @@
+---
+# tasks file for igel-enable
+
+- name: igel-enable
+  blockinfile:
+    path: /local/staging/wfs/setup.ini
+    marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
+    insertafter: "<imprivata>"
+    block: |
+       enabled=<true>
+       server=<https://rodu1.porsche.imp.eng>

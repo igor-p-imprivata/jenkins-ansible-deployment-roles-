@@ -1,0 +1,9 @@
+---
+# tasks file for download oracle java installer
+- name: Download Oracle Java 11 installation file
+  win_get_url:
+    url: http://10.153.19.193:8085/java/jdk-11.0.12_windows-x64_bin.exe
+    dest: '%TEMP%\jdk-11.0.12_windows-x64_bin.exe'
+    checksum: 135FFD1C350509729551876232A5354070732E92
+    checksum_algorithm: sha1
+    force: True

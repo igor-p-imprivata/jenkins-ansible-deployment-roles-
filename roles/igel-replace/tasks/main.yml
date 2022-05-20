@@ -1,0 +1,43 @@
+---
+# tasks file for igel-enable
+#
+- name: Replace between the expressions (requires Ansible >= 2.4)
+  ansible.builtin.replace:
+    path: /local/staging/wfs/setup.ini
+    after: '<imprivata>'
+    before: '</imprivata>'
+    regexp: '^(.+)$'
+    #replace: '#'
+    #replace: '#'
+    #replace: '\tenabled=<true> \n \tserver=<https://rodu1.porsche.imp.eng>'
+    #replace: '\tenabled=<true> \n \tserver=<https://rodu1.porsche.imp.eng>'
+#
+#- name: Replace between the expressions (requires Ansible >= 2.4)
+#  ansible.builtin.replace:
+#    path: /local/staging/wfs/setup.ini
+#    after: '<imprivata>'
+#    before: '</imprivata>'
+#    regexp: '^(.+)$'
+#    replace: '\tenabled=<true> \n \tserver=<https://rodu1.porsche.imp.eng>'
+
+
+
+- name: igel-enable
+  blockinfile:
+    path: /local/staging/wfs/setup.ini
+    marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
+    insertafter: "<imprivata>"
+    block: |8
+               enabled=<true>
+               server=<https://rodu1.porsche.imp.eng>
+
+
+- name: Replace between the expressions (requires Ansible >= 2.4)
+  ansible.builtin.replace:
+    path: /local/staging/wfs/setup.ini
+    after: '<imprivata>'
+    before: '</imprivata>'
+    regexp: '(^\s*$)'
+    replace: ''
+    
+           

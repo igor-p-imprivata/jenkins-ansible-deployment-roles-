@@ -1,0 +1,6 @@
+---
+# tasks file for install_cp-build-tools
+- name: Install CPP build tools
+  win_chocolatey:
+    name: visualcpp-build-tools
+    #version: 7.6.6

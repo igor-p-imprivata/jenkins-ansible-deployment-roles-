@@ -1,0 +1,6 @@
+---
+# tasks file for setting desktop.ini file attributes
+- name: setting desktop.ini file attributes
+  win_shell: |
+    attrib +s +h "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\desktop.ini"
+    attrib +s +h "%programdata%\Microsoft\Windows\Start Menu\Programs\Startup\desktop.ini"

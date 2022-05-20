@@ -1,0 +1,7 @@
+---
+# tasks file for Delete VMware dumps
+- name: Delete VMware dump files
+  win_file:
+    path: C:\Program Files\VMware\VMware View\Dumps\ 
+    state: absent
+

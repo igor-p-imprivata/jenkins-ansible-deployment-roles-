@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Pawan Sawalani
+  description: Install Windows Updates.
+  license: BSD
+
+  min_ansible_version: 2.0
+  platforms:
+  - name: Windows
+    versions:
+     - all
+
+  galaxy_tags:
+  - windows
+  - security
+  - patching
+
+
+dependencies: []

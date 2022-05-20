@@ -1,0 +1,12 @@
+---
+patching_windows_reboot_allowed: true
+patching_windows_update_allowed: true
+patching_windows_reboot_timeout: 600
+patching_windows_categories:
+  - CriticalUpdates
+  - SecurityUpdates
+  - DefinitionUpdates
+  - UpdateRollups
+  - Updates
+  - ServicePacks
+  - FeaturePacks

@@ -1,0 +1,16 @@
+---
+# tasks file for DontDisplayLastUserName
+- name: DontDisplayLastUserName_System
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    name: DontDisplayLastUserName
+    data: 1
+    type: dword
+
+- name: DontDisplayLastUserName_Winlogon
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+    name: DontDisplayLastUserName
+    data: 1
+    type: dword
+

@@ -1,0 +1,10 @@
+---
+# tasks file for download Set-BrokerDesktopGroup script
+- name: Download Set-BrokerDesktopGroup script
+  win_get_url:
+    url: http://10.153.19.193:8085/citrix/Set-BrokerDesktopGroup.ps1
+    dest: C:\
+    #mode: '0440' 
+    #checksum: 135FFD1C350509729551876232A5354070732E92
+    #checksum_algorithm: sha1
+    force: True

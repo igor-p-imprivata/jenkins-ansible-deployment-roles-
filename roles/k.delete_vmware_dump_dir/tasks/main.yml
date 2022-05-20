@@ -1,0 +1,6 @@
+---
+# Delete dump files directory
+- name: Delete VMware Dump files direstory
+  win_file:
+    path: C:\Program Files\VMware\VMware View\Dumps\
+    state: absent

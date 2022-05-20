@@ -1,0 +1,10 @@
+---
+# tasks file for download oracle java installer
+- name: Download Imprivata CA pem file
+  get_url:
+    url: http://10.153.19.193:8085/certs/IMPENG_Root_CA.pem
+    dest: /etc/pki/trust/anchors/IMPENG_Root_CA.pem
+    mode: '0440' 
+    #checksum: 135FFD1C350509729551876232A5354070732E92
+    #checksum_algorithm: sha1
+    #force: True

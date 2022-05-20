@@ -1,0 +1,34 @@
+---
+- name: install JDK
+  win_package:
+    path: C:\Temp\imp-files\java_installation\jdk-8u231-windows-x64.exe
+    product_id: jdk-8u231
+    arguments:
+      - /s
+      - /quiet
+    state: present
+
+
+- name: Set JAVA_HOME variable for all users
+  win_environment:
+    state: present
+    name: JAVA_HOME
+    value: C:\Program Files\Java\jre1.8.0_231
+    level: machine
+
+
+
+- name: Reboot Windows Server
+  win_reboot:
+    msg: "Restart the server 3 seconds later"
+    post_reboot_delay: 3
+    test_command: whoami
+ 
+- name: check jdk shell
+  win_shell: "java -version"
+  args:
+    executable: cmd
+  register: java_version
+ 
+- debug: msg="{{java_version.stderr_lines}}"    
+

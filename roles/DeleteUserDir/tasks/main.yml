@@ -1,0 +1,7 @@
+---
+# tasks file for DeleteUserDir
+- name: DeleteUserDir
+  win_file:
+    path: C:\Users\Ajlzwgd1 
+    state: absent
+

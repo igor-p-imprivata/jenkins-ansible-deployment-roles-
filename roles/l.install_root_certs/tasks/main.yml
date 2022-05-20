@@ -1,0 +1,11 @@
+---
+# tasks file for download oracle java installer
+- name: Rehash Imprivata CA pem file
+  shell:
+    cmd: c_rehash
+    chdir: /etc/pki/trust/anchors/
+
+- name: Update CA Certificates
+  shell:
+    cmd: update-ca-certificates
+    chdir: /etc/pki/trust/anchors/

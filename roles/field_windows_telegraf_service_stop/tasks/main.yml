@@ -1,0 +1,4 @@
+---
+# tasks file for windows_telegraf_service_stop
+- name: stop Telegraf service
+  win_command:  net stop telegraf

@@ -1,0 +1,7 @@
+---
+# tasks file for install_visualstudio2019-build-tools
+- name: Install VS2019 build tools
+  win_chocolatey:
+    name: visualstudio2019buildtools
+    #version: 7.6.6
+    state: absent
