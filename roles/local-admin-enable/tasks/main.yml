@@ -1,0 +1,8 @@
+---
+# tasks file for local-admin_enable
+- name: Enable local "Administrator" user
+  win_user:
+    name: administrator
+    account_disabled: no
+    account_locked: no  
+    password_never_expires: true

@@ -1,0 +1,4 @@
+---
+# tasks file for windows_telegraf_service_start
+- name: start Telegraf service
+  win_command:  net start telegraf

@@ -1,0 +1,11 @@
+---
+# tasks file for updating pip and installing criptography package
+- name: Upgrade PIP
+  win_shell: python -m pip install --upgrade pip
+  args:
+    executable: cmd      
+
+- name: install cryptography 2.9.2    
+  win_shell: pip install -vvv "cryptography==2.9.2"
+  args:
+    executable: cmd

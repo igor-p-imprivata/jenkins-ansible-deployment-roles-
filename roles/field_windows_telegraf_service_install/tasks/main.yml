@@ -1,0 +1,6 @@
+---
+# tasks file for windows_telegraf_service_install
+- name: Install Telegraf as a service
+  win_command:  telegraf.exe --service install
+  args:
+    chdir: 'C:\Program Files\Telegraf\'

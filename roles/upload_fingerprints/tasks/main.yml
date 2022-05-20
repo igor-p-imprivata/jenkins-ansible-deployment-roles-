@@ -1,0 +1,11 @@
+---
+# tasks file for uploading fingerprints
+- name: Copy fingerprints to C:\Fingerprints directory
+  win_copy:
+    src: files/
+    dest: C:\Fingerprints
+
+- name: Copy fingerprints to C:\FP directory
+  win_copy:
+    src: files/
+    dest: C:\FP    
