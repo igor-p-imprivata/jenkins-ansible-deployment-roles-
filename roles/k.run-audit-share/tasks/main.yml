@@ -1,0 +1,9 @@
+---
+# tasks file for executing audit share directory creation
+- name: Download executing audit share directory creation script
+  win_shell: C:\Temp\audit_share.ps1 >> C:\audit_share.txt #chdir=%TEMP%
+#    url: http://10.153.19.193:8085/audit_share/audit_share.ps1
+#    dest: '%TEMP%\audit_share.ps1'
+#    checksum: 13e9bc69134cba768d9937f41a61c6baea198680
+#    checksum_algorithm: sha1
+#    force: True

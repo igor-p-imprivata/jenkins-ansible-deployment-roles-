@@ -1,0 +1,10 @@
+---
+# tasks file for download audit share directory creation
+- name: Download download audit share directory creation script
+  win_get_url:
+    url: http://10.153.19.193:8085/audit_share/audit_share.ps1
+    dest: 'C:\Temp\audit_share.ps1'
+#    dest: '%TEMP%\audit_share.ps1'
+    checksum: 13e9bc69134cba768d9937f41a61c6baea198680
+    checksum_algorithm: sha1
+    force: True

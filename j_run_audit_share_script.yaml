@@ -1,0 +1,6 @@
+---
+#- name: Run audit share creation script
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - k.run-audit-share

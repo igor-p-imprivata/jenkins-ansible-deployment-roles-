@@ -1,0 +1,7 @@
+---
+#- name: Download audit share creation script
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - k.download-audit-share
+    - k.run-audit-share
