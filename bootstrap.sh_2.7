@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+apt-get update
+#apt-get upgrade -y
+sudo apt-add-repository --yes ppa:ansible/ansible
+apt-get install software-properties-common gcc python-dev libkrb5-dev libssl-dev libffi-dev build-essential -y
+#sudo apt-add-repository --yes ppa:ansible/ansible
+apt-get update
+sudo apt-get install ansible python-pip -y
+sudo pip install --upgrade setuptools
+sudo pip install pywinrm
+sudo pip install pywinrm[kerberos]
+sudo pip install pywinrm[credssp]

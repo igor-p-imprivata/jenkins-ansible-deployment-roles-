@@ -1,0 +1,319 @@
+    1  cat  vm76vda_nords.yaml
+    2  cat VmwareVDA.ini 
+    3  cd /app
+    4  ls -ltr
+    5  termtosvg
+    6  exit
+    7  ansible vm76a -i VmwareVDA.ini -m win_ping
+    8  cd /app
+    9  ls -ltr
+   10  ansible vm76vda -i VmwareVDA.ini -m win_ping
+   11  ansible vm76a -i VmwareVDA.ini -m win_ping
+   12  clear
+   13  termtosvg 
+   14  clear
+   15  termtosvg 
+   16  ansible vm76a - vvv -i VmwareVDA.ini -m win_ping
+   17  ansible vm76a -vvv -i VmwareVDA.ini -m win_ping
+   18  ansible vm76a -vvvv -i VmwareVDA.ini -m win_ping
+   19  clear
+   20  cd /app
+   21  ls -ltr
+   22  cat vm76vda
+   23  cat vm76vda.yaml
+   24  exit
+   25  ansible-playbook windows_update.yaml -vv -i VmwareVDA.ini
+   26  cd /app
+   27  ls -ltra
+   28  ls-la /tmp
+   29  ls -ltr /tmp
+   30  mkdir SVG
+   31  ls -ltr
+   32  clear
+   33  ls -ltr
+   34  cat windows_update
+   35  cat windows_update.yaml 
+   36  termtosvg
+   37  ansible-playbook windows_update.yaml -vv -i VmwareVDA.ini
+   38  ansible-playbook VMware_App_and_RDS_prereq.yaml -vv -i VmwareVDA.ini
+   39  https://www.jfrog.com/confluence/display/RTF/Getting+Started
+   40  ansible-playbook VMware_App_and_RDS_prereq.yaml -vv -i VmwareVDA.ini
+   41  cd /app
+   42  l s-ltr
+   43  ls -ltr
+   44  history
+   45  ansible-playbook VMware_App_and_RDS_prereq.yaml -vv -i VmwareVDA.ini
+   46  ls -ltr
+   47  cat VMware_App_and_RDS_prereq.yaml
+   48  ls -ltr
+   49  git status
+   50  ls -ltra
+   51  ls -ltra .git
+   52  cat .git/description 
+   53  cat .git/config 
+   54  history
+   55  ls -ltr
+   56  cat VMware_App_and_RDS_prereq.retry
+   57  exit
+   58  ls -ltr
+   59  cd /app
+   60  history
+   61  exit
+   62  cd /app
+   63  ls -ltr
+   64  ansible vm_cb -i VmwareVDA.ini -m win_ping
+   65  ls -ltr
+   66  cd roles
+   67  ls -ltr
+   68  rm -rf  vm_hv_herper_copy
+   69  ansible-galaxy init vmware_powercli_install
+   70  ls -ltr
+   71  cd ../
+   72  ls -ltr
+   73  cp VMware_App_and_RDS_prereq.yaml VMware_CB.yaml
+   74  ls -ltr
+   75  ansible-playbook VMware_CB.yaml -i VmwareVDA.ini 
+   76  cd ../
+   77  ls -ltr
+   78  ls -la
+   79  exit
+   80  cd /app
+   81  cd roles
+   82  ansible-galaxy init vmbroker_shell_commands
+   83  ls -ltr
+   84  cd ../
+   85  ls -ltr
+   86  history
+   87  cat VMware_CB.yaml
+   88  git branch
+   89  checkout working
+   90  git checkout working
+   91  ls -ltr
+   92  git history
+   93  git --help
+   94  git show
+   95  git diff
+   96  ls -ltr
+   97  history
+   98  ansible-playbook VMware_CB.yaml -i VmwareVDA.ini 
+   99  ansible-playbook VMware_CB.yaml -vvv -i VmwareVDA.ini 
+  100  cd roles
+  101  ls -ltr
+  102  ansible-galaxy init vmbroker_shell_1
+  103  ansible-galaxy init vmbroker_shell_2
+  104  cd ../
+  105  ansible-playbook VMware_CB.yaml -vvv -i VmwareVDA.ini 
+  106  ansible-playbook VMware_CB.yaml -vv -i VmwareVDA.ini 
+  107  git status
+  108  git branch
+  109  git push
+  110  git push --set-upstream origin working
+  111  git status
+  112  git add roles/*
+  113  git status
+  114  git add VMware_CB.* VmwareVDA.ini 
+  115  git status
+  116  git commit -m "added VM_CB roles. Draft"
+  117  git push
+  118  git pull
+  119  git status
+  120  git checkout master
+  121  git pull
+  122  git push
+  123  ls -ltr
+  124  exit
+  125  cd /app
+  126  ls -ltr
+  127  ansible vm_cb -i VmwareVDA.ini -m win_ping
+  128  ping vm751cb12-01
+  129  ls -ltr
+  130  cat VmwareVDA.ini 
+  131  ansible vm_cb -i VmwareVDA.ini -m win_ping
+  132  history
+  133  cd roles
+  134  ls -ltr
+  135  ansible-galaxy init install_WMF5.1
+  136  ls -ltr
+  137  cd install_
+  138  cd install_WMF5.1/
+  139  ls -ltr
+  140  cd files
+  141  ls -ltr
+  142  mkdir 2012R2
+  143  mkdir 2012
+  144  mkdir 2008R2
+  145  mkdir 8.1
+  146  mkdir 7SP1
+  147  cd ../../
+  148  ls- ltr
+  149  git branch
+  150  git checkout working
+  151  git config credential.helper cache --timeout=3600
+  152  git status
+  153  cd ../
+  154  ls -l tr
+  155  ls -ltr
+  156  git status
+  157  git add VMware_CB.yaml  VmwareVDA.ini  roles/winupdate/tasks/main.yml
+  158  git add roles/install_WMF5.1/  vm_cb_windows_update.yaml
+  159  git status
+  160  git commit -m "Added WMF5.1"
+  161  git push
+  162  git lfs migrate import --include="*."
+  163  git push
+  164  git status
+  165  git push
+  166  git lfs ls-files
+  167  ansible vm751cb2012 -i VmwareVDA.ini -m setup
+  168  ls -ltr
+  169  git status
+  170  git add roles/install_WMF5.1/tasks/main.yml
+  171  git commit -m "maint"
+  172  git push
+  173  ansible-playbook vm_cb_windows_update.yaml -vvv -i VmwareVDA.ini 
+  174  ls -ltr
+  175  history
+  176  ansible-playbook VMware_CB.yaml -vvv -i VmwareVDA.ini 
+  177  ansible vw751cb12-01 -i VmwareVDA.ini -m setup
+  178  which jq
+  179  sudo apt-get installjq
+  180  sudo apt-get install jq
+  181  ansible vw751cb12-01 -i VmwareVDA.ini -m setup | jq ansible_facts
+  182  manjq
+  183  man jq
+  184  ansible vw751cb12-01 -i VmwareVDA.ini -m setup 
+  185  ansible vw751cb12-01 -i VmwareVDA.ini -m setup |sed `1c {`|jq '.ansible_facts.ansible_all_ipv4_addresses'
+  186  ansible vw751cb12-01 -i VmwareVDA.ini -m setup
+  187  ansible vw751cb12-01 -i VmwareVDA.ini -m setup |sed `1c {`|jq '.ansible_facts.ansible_ip_addresses'
+  188  ansible vw751cb12-01 -i VmwareVDA.ini -m setup |sed '1c {'|jq '.ansible_facts.ansible_ip_addresses'
+  189  ansible vw751cb12-01 -i VmwareVDA.ini -m setup |sed '1c {'|jq '.ansible_facts.ansible_powershell_version'
+  190  ansible-playbook VMware_CB.yaml -vvv -i VmwareVDA.ini --limit VMware_CB.retry 
+  191  ls -ltr
+  192  cp -rf VMware_CB.yaml VMware_CB_2012.yaml
+  193  ansible-playbook VMware_CB_2012.yaml -vvv -i VmwareVDA.ini 
+  194  ansible vw751cb12-01 -i VmwareVDA.ini -m setup 
+  195  ansible-playbook VMware_CB_2012.yaml -vvv -i VmwareVDA.ini 
+  196  ls -ltr
+  197  cp -rf vm_cb_windows_update.yaml vm_cb_2012_windows_update.yaml
+  198  ansible-playbook vm_cb_2012_windows_update.yaml -vvv -i VmwareVDA.ini 
+  199  ls -ltr
+  200  cp vm_cb_2012_windows_update.yaml vm_cb_2012_windows_wmf51_install.yaml
+  201  ls -ltr
+  202  ansible-playbook vm_cb_2012_windows_update.yaml -vvv -i VmwareVDA.ini 
+  203  ls -ltr
+  204  cd roles
+  205  ls -ltr
+  206  cd ../
+  207  ls -ltr
+  208  cp vm_cb_2012_windows_update.retry vm_cb_2012_windows_sec_update.retry
+  209  cp vm_cb_2012_windows_update.retry vm_cb_2012_windows_critical_update.retry
+  210  cp vm_cb_2012_windows_update.yaml vm_cb_2012_windows_sec_update.retry
+  211  cp vm_cb_2012_windows_update.yaml vm_cb_2012_windows_critical_update.retry
+  212  cp vm_cb_2012_windows_update.yaml vm_cb_2012_windows_critical_update.yaml
+  213  cp vm_cb_2012_windows_update.yaml vm_cb_2012_windows_sec_update.yaml
+  214  ls -ltr
+  215  git branch
+  216  git status
+  217  git add  roles/install_WMF5.1/tasks/main.yml  roles/winupdate/tasks/main.yml roles/winupdate_critical/tasks/main.yml roles/winupdate_security/tasks/main.yml
+  218  git add  VMware_CB_2012.yaml
+  219  git add vm_cb_2012_windows_critical_update.yaml vm_cb_2012_windows_sec_update.yaml vm_cb_2012_windows_update.yaml vm_cb_2012_windows_wmf51_install.yaml
+  220  git status
+  221  git commit -m "update tweaking"
+  222  git push
+  223  ls -ltr
+  224  ansible-playbook vm_cb_2012_windows_sec_update.yaml -vvv -i VmwareVDA.ini 
+  225  ls -ltr
+  226  ansible-playbook vm_cb_2012_windows_critical_update.yaml -vvv -i VmwareVDA.ini 
+  227  ls -ltr
+  228  ansible-playbook vm_cb_2012_windows_wmf51_install.yaml -vvv -i VmwareVDA.ini 
+  229  ls -ltr
+  230  ansible-playbook vm_cb_2012_windows_sec_update.yaml -vvv -i VmwareVDA.ini 
+  231  ls -ltr
+  232  ansible-playbook vm_cb_2012_windows_critical_update.yaml -vvv -i VmwareVDA.ini 
+  233  ls -ltr
+  234  ansible-playbook vm_cb_2012_windows_wmf51_install.yaml -vvv -i VmwareVDA.ini 
+  235  history
+  236  ls -ltr
+  237  ansible-playbook VMware_CB_2012.yaml -vvv -i VmwareVDA.ini 
+  238  git status
+  239  history >> ./hist_02052019.txt
+  240  ls -ltr
+  241  git add  VMware_CB_2012.yaml roles/install_WMF5.1/tasks/main.yml 
+  242  git commit -m "Fixed HotFix install"
+  243  git status
+  244  git add hist_02052019.txt 
+  245  git commit -m "added history file"
+  246  git status
+  247  git push
+  248  exit
+  249  cd /app
+  250  ls -ltr
+  251  cp vm_cb_2012_windows_sec_update.yaml vm_cb_2016_windows_sec_update.yaml
+  252  cp vm_cb_2012_windows_critical_update.yaml vm_cb_2016_windows_critical_update.yaml
+  253  history
+  254  git status
+  255  git add vm_cb_2016_windows_critical_update.yaml vm_cb_2016_windows_sec_update.yaml
+  256  git status
+  257  git branch
+  258  git commit -m "Added 2016 VM CD Win updates"
+  259  git push
+  260  ansible 10.153.138.188 -m win_ping
+  261  ansible vw751cb16-02 -i VmwareVDA.ini -m win_ping
+  262  ansible vw751cb16-02 -i VmwareVDA.ini -m include_role -a name=vm_hv_helper_copy
+  263  ansible vw751cb16-02 -i VmwareVDA.ini -m include_role -a name=vmware_powercli_install
+  264  ansible vw751cb12-02 -i VmwareVDA.ini -m win_ping
+  265  ansible vw751cb12-02 -i VmwareVDA.ini -m include_role -a name=vmware_powercli_install
+  266  ansible vw751cb12-02 -i VmwareVDA.ini -m include_role -a name=install_WMF5.1
+  267  ansible vw751cb12-02 -i VmwareVDA.ini -m include_role -a name=vm_hv_helper_copy
+  268  git status
+  269  ls -ltr
+  270  history >> hist_02062019.txt 
+  271  git status
+  272  git add VmwareVDA.ini hist_02062019.txt 
+  273  git commit -m "misc"
+  274  git push
+  275  exitr
+  276  exit
+  277  ansible-playbook validate_prereq_test.yaml -i VmwareVDA.ini --check
+  278  ansible-playbook validate_prereq_test.yaml -vv -i VmwareVDA.ini --check
+  279  ansible-playbook validate_prereq_test.yaml -vv -i VmwareVDA.ini
+  280  ls -ltr
+  281  ansible-playbook 2016_windows_critical_update.yaml -vv -i VmwareVDA.ini -e host=vm751a2016
+  282  ansible-playbook validate_prereq_test.yaml -vv -i VmwareVDA.ini -e host=vm751a --check
+  283  ansible-playbook install_prereq_for_shapshot.yaml -vv -i VmwareVDA.ini -e host=vm751a --check
+  284  ansible-playbook install_prereq_for_shapshot.yaml -vv -i VmwareVDA.ini -e host=vm751a
+  285  history
+  286  ansible vw78cb12-01 -i VmwareVDA.ini -mwin_ping 
+  287  ansible vw78cb12-01 -i VmwareVDA.ini -m win_ping 
+  288  pwd
+  289  ls -ltr]
+  290  cd /app
+  291  ansible vw78cb12-01 -i VmwareVDA.ini -m win_ping 
+  292  ansible-playbook install_prereq_for_shapshot.yaml -vv -i VmwareVDA.ini -r host=vw78cb12-01 --check
+  293* ansible-playbook install_prereq_for_shapshot.yaml -vv -i VmwareVDA.ini -e host=vw78cb16-01 --check
+  294  ansible-playbook install_prereq_for_shapshot.yaml -vv -i VmwareVDA.ini -e host=vw78cb12-01
+  295  ansible vw78cb16-01 -i VmwareVDA.ini -m win_ping 
+  296  ls- ltr
+  297  ls -ltr
+  298  less hist_02052019.txt 
+  299  less hist_02062019.txt 
+  300  ansible vw78cb12-01 -i VmwareVDA.ini -m include_role -a name=vm_hv_helper_copy
+  301  ansible vw78cb12-01 -i VmwareVDA.ini -m include_role -a name=install_WMF5.1
+  302  ansible vw78cb12-01 -i VmwareVDA.ini -m include_role -a name=install_WMF5.1 --check
+  303  ansible vw78cb12-01 -i VmwareVDA.ini -m include_role -a name=target_dir
+  304  ansible vw78cb12-01 -i VmwareVDA.ini -m include_role -a name=install_WMF5.1 --check
+  305  ansible vw78cb12-01 -i VmwareVDA.ini -m include_role -a name=install_WMF5.1 
+  306  ansible vw78cb16-01 -i VmwareVDA.ini -m include_role -a name=vm_hv_helper_copy
+  307  ansible-playbook install_prereq_for_shapshot.yaml -vv -i VmwareVDA.ini -e host=vw78cb16-01
+  308  ansible vw_apps -i VmwareVDA.ini -m win_ping 
+  309  ansible vm_apps -i VmwareVDA.ini -m win_ping 
+  310  ansible vm-apps -i VmwareVDA.ini -m win_ping 
+  311  ansible vm78a -i VmwareVDA.ini -m win_ping 
+  312  history
+  313  ansible-playbook install_prereq_for_shapshot.yaml -vv -i VmwareVDA.ini -e host=vm78a --check
+  314  ansible-playbook install_prereq_for_shapshot.yaml -vv -i VmwareVDA.ini -e host=vm78a
+  315  ansible vm78a -i VmwareVDA.ini -m include_role -a name=vm_horizon_upload--check
+  316  ansible vm78a -i VmwareVDA.ini -m include_role -a name=vm_horizon_upload --check
+  317  ansible vm78a -i VmwareVDA.ini -m include_role -a name=vm_horizon_upload 
+  318  history
+  319  history >> hist02272019.txt
