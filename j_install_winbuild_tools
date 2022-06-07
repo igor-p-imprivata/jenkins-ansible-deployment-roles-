@@ -1,0 +1,6 @@
+---
+#- name: Delete VMware dumps
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - k.win_buildtools

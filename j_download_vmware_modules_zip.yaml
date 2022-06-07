@@ -1,0 +1,6 @@
+---
+#- name: Download VMware modules repository zip
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - k.download_vmware_modules

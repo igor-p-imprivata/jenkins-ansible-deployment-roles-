@@ -1,0 +1,56 @@
+---
+# tasks file to download vmware modules
+- name: Download VMware modules
+  win_get_url:
+    url: http://10.153.19.193:8085/vmware/PowerCLI-Example-Scripts-master.zip
+    dest: 'C:\PowerCLI-Example-Scripts-master.zip'
+    checksum: 50aa5dc1cd9bd2b9aa65bbb1113064e864ea3505
+    checksum_algorithm: sha1
+    force: True
+
+- name: Install unzip
+  win_chocolatey:
+    name: unzip
+
+- name: Unzip VMware modules archive
+  win_command: unzip -d C:\PowerCLI-Scripts  C:\PowerCLI-Example-Scripts-master.zip
+
+- name: Remove original zip archive
+  win_file:
+    path: C:\PowerCLI-Example-Scripts-master.zip
+    state: absent
+
+- name: Set PS Repository
+  win_command: powershell.exe -
+  args: 
+    stdin: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted  
+
+- name: Install Desired State Configuration module
+  win_command: powershell.exe -
+  args:
+    stdin: Install-Module -Name PSDesiredStateConfiguraton
+
+- name: Install PowerCLI module
+  win_command: powershell.exe -
+  args:
+    stdin: Install-Module -Name VMware.PowerCLI
+
+- name: Install VMware.PSDesiredStateConfiguration module
+  win_command: powershell.exe -
+  args:
+    stdin: Install-Module -Name VMware.PSDesiredStateConfiguration
+
+- name: Import VMware.VimAutomation.HorizonView module
+  win_command: powershell.exe -
+  args:
+    stdin: Import-Module -Name VMware.VimAutomation.HorizonView
+
+- name: Import VMware.Hv.Helper
+  win_command: powershell.exe -
+  args:
+    stdin: Import-Module -Name C:\PowerCLI-Scripts\PowerCLI-Example-Scripts-master\Modules\VMware.Hv.Helper
+
+- name: Get Commands for VMware.Hv.Helper module
+  win_command: powershell.exe -
+  args: 
+    stdin: Get-Command -Module "VMware.Hv.Helper"
