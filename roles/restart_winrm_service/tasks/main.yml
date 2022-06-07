@@ -1,0 +1,6 @@
+---
+# tasks file for restart_winrm_service
+- name: Restart WinRM service
+  win_service:
+          name: WinRM
+          state: restarted

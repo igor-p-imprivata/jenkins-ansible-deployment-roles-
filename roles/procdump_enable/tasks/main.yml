@@ -1,0 +1,17 @@
+---
+
+#- name: Create crush_dumps directory
+#  win_file:
+#    path: C:\crash_dumps
+#    state: directory
+
+- name: Copy procdump.exe to target
+  win_copy:
+    src: files/procdump.exe
+    dest: C:\crash_dumps\
+
+- name: Run procdump.exe
+  win_command: procdump.exe -
+  args:
+    chdir: C:\crash_dumps
+    stdin: -accepteula -i -ma        

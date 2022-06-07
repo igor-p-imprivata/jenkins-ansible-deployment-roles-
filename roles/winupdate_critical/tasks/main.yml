@@ -1,0 +1,10 @@
+---
+# tasks file for winupdate_critical
+- name:
+  win_updates:
+    category_names:
+      - CriticalUpdates
+    reboot: yes
+    reboot_timeout: 4500
+    debugger: on_failed
+

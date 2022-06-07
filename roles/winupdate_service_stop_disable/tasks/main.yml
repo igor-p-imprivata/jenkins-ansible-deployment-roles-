@@ -1,0 +1,7 @@
+---
+# tasks file for winupdate_service_stop_disable
+- name:  Stopping and disablind Windows Update Service
+  win_service:
+    name: wuauserv
+    state: stopped
+    start_mode: disabled

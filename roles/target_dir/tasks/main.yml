@@ -1,0 +1,11 @@
+---
+# tasks file for target_dir
+- name: Create directory to host required installable artifacts
+  win_file:
+    path: C:\Temp\imp-files\ansible
+    state: directory
+
+- name: Create directory for java installer
+  win_file:
+    path: C:\Temp\imp-files\java_installation
+    state: directory      

@@ -1,0 +1,6 @@
+---
+# tasks file for set_wsman_trusted_hosts
+- name: Set WSMan trusted hosts
+  win_command: powershell.exe -
+  args:
+    stdin: Set-Item wsman:\localhost\client\trustedhosts * -Force

@@ -1,0 +1,36 @@
+---
+# tasks file for SSO Tomcat Webapp
+
+- name: Copy SSO Tomcat Webapp components to C:\Tomcat
+  win_copy:
+    src: files/tomcat/
+    dest: C:\Tomcat
+
+
+
+- name: Allow Users
+  win_acl:
+    path: C:\Tomcat
+    user: Users
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present
+
+- name: Allow java-admin
+  win_acl:
+    path: C:\Tomcat
+    user: java-admin
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Change read only attribute for Tomcat directory
+  win_command: attrib -r +s C:\Tomcat
+
+- name: Set JAVA_HOME variable for all users
+  win_environment:
+    state: present
+    name: JAVA_HOME
+    value: C:\Program Files\Java\jre1.8.0_231 
+    level: machine  
+

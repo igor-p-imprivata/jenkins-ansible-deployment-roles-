@@ -1,0 +1,10 @@
+---
+# tasks file for trace_password_finder
+
+- name: Copy Trace Password Finder utility to C:\TracePasswordFinder
+  win_copy:
+    src: files/TracePasswordFinder/
+    dest: C:\TracePasswordFinder
+
+- name: Change read only attribute for TracePasswordFinder directory
+  win_command: attrib -r +s C:\TracePasswordFinder    

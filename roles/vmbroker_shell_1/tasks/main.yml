@@ -1,0 +1,8 @@
+---
+# tasks file for vmbroker_shell_1
+- name: run a multiple vmbroker shell commands
+  win_shell: |
+    'dir "C:\Program Files\WindowsPowerShell\Modules\VMware.Hv.Helper\" | Unblock-File'
+    Set-ExecutionPolicy RemoteSigned -Force
+    Enable-PSRemoting -Force
+    Set-Item wsman:\localhost\client\trustedhosts * -Force

@@ -1,0 +1,35 @@
+---
+# tasks file for SSO Server Client
+
+- name: Copy SSO selenium components to C:\selenium
+  win_copy:
+    src: files/selenium/
+    dest: C:\selenium
+
+- name: Allow Users
+  win_acl:
+    path: C:\selenium
+    user: Users
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Allow java-admin
+  win_acl:
+    path: C:\selenium
+    user: java-admin
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Allow administrator
+  win_acl:
+    path: C:\selenium
+    user: administrator
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Change read only attribute for selenium directory
+  win_command: attrib -r +s C:\selenium
+

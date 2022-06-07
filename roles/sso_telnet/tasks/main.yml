@@ -1,0 +1,35 @@
+---
+# tasks file for SSO Server Client
+
+- name: Copy SSO Telnet  components to C:\Telnet
+  win_copy:
+    src: files/Telnet/
+    dest: C:\Telnet
+
+- name: Allow Users
+  win_acl:
+    path: C:\Telnet
+    user: Users
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Allow java-admin
+  win_acl:
+    path: C:\Telnet
+    user: java-admin
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Allow administrator
+  win_acl:
+    path: C:\Telnet
+    user: administrator
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Change read only attribute for Telnet directory
+  win_command: attrib -r +s C:\Telnet
+

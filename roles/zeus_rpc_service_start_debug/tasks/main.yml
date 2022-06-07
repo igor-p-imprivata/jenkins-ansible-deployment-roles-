@@ -1,0 +1,7 @@
+---
+# tasks file for zeus_rpc_service_start_debug
+- name: Start zeus RPC Service.
+  win_shell: zeus_rpc_service -i -s -d
+  args:
+#    chdir: C:\Temp\zeus_rpc\
+    executable: cmd

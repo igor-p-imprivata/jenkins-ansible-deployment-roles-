@@ -1,0 +1,8 @@
+---
+# tasks file for server_manager_golbal
+- name: Do Not Open Server Manager (global)
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\ServerManager
+    name: DoNotOpenServerManagerAtLogon
+    data: 1
+    type: dword

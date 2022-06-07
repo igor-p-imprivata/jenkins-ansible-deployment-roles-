@@ -1,0 +1,8 @@
+---
+# tasks file for server_manager_user
+- name: Do Not Open Server Manager (current user)
+  win_regedit:
+    path: HKCU:\SOFTWARE\Microsoft\ServerManager
+    name: DoNotOpenServerManagerAtLogon
+    data: 1
+    type: dword

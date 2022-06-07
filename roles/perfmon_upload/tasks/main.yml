@@ -1,0 +1,6 @@
+---
+# tasks file for perfmon_upload
+- name: Copy PerfMon XML files to target
+  win_copy:
+    src: files/{{level}}/{{perfmon_template}}
+    dest: C:\Temp\imp-files\

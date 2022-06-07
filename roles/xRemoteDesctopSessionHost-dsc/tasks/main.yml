@@ -1,0 +1,6 @@
+---
+# tasks file for xRemoteDesctopSessionHost-dsc
+- name: Setup the xRemoteDesktopSessionHost module
+  win_psmodule:
+    name: xRemoteDesktopSessionHost
+    state: present

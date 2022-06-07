@@ -1,0 +1,10 @@
+---
+# tasks file for memory_password_finder
+
+- name: Copy Server Password Finder utility to C:\ServerPasswordFinder
+  win_copy:
+    src: files/ServerPasswordFinder/
+    dest: C:\ServerPasswordFinder
+
+- name: Change read only attribute for ServerPasswordFinder directory
+  win_command: attrib -r +s C:\ServerPasswordFinder    

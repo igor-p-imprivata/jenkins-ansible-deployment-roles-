@@ -1,0 +1,35 @@
+---
+# tasks file for SSO Server Client
+
+- name: Copy SSO Server Client components to C:\ServerClient\rel
+  win_copy:
+    src: files/AndriyD/
+    dest: C:\ServerClient\rel
+
+- name: Allow Users
+  win_acl:
+    path: C:\ServerClient\rel
+    user: Users
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Allow java-admin
+  win_acl:
+    path: C:\ServerClient\rel
+    user: java-admin
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Allow administrator
+  win_acl:
+    path: C:\ServerClient\rel
+    user: administrator
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Change read only attribute for ServerClient directory
+  win_command: attrib -r +s C:\ServerClient
+

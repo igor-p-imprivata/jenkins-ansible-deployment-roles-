@@ -1,0 +1,30 @@
+---
+# tasks file for zeus_certs
+- name: Copy Zeus RPC Service installation files to "C:\Temp\zeus_certs" directory
+  win_copy:
+      src: files/zeus_certs/
+      dest: C:\Temp\zeus_certs\
+
+#- name:  Run PIP install
+#  win_command: pip install zeus_rpc_service-0.0.dev1-py3-none-any.whl
+#    args:
+#      chdir:  'C:\Temp\zeus_rpc\'
+
+
+- name: Run PIP install zeus_utils 1 of 3.
+  win_shell: pip install zeus_utils-0.0.dev1-py3-none-any.whl
+  args:
+    chdir: C:\Temp\zeus_certs\
+    executable: cmd
+
+- name: Run PIP install zeus_win32_utils 2 of 3.
+  win_shell: pip install zeus_win32_utils-0.0.0-py3-none-any.whl
+  args:
+    chdir: C:\Temp\zeus_certs\
+    executable: cmd
+
+- name: Run PIP install zeus_reg 3 of 3.
+  win_shell: pip install zeus_cert-0.0.dev1-py3-none-any.whl
+  args:
+    chdir: C:\Temp\zeus_certs\
+    executable: cmd

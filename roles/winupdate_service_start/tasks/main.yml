@@ -1,0 +1,7 @@
+---
+# tasks file for winupdate_service_start
+- name:  Starting and enabling Windows Update Service
+  win_service:
+    name: wuauserv
+    state: started
+    start_mode: manual

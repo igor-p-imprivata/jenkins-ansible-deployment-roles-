@@ -1,0 +1,6 @@
+---
+# tasks file for unblock_vmware_hv_helper_directory
+- name: Unblock VMware.Hv.Helper directory
+  win_command: powershell.exe -
+  args:
+    stdin: dir "C:\Program Files\WindowsPowerShell\Modules\VMware.Hv.Helper\" | Unblock-File

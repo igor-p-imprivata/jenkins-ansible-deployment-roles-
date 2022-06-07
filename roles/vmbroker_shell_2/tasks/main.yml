@@ -1,0 +1,5 @@
+---
+# tasks file for vmbroker_shell_2
+- name: run a multiple vmbroker shell commands
+  win_shell: |
+    Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -confirm:$false

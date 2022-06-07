@@ -1,0 +1,10 @@
+---
+# tasks file for memory_password_finder
+
+- name: Copy PIE Password Finder utility to C:\PIEPasswordFinder
+  win_copy:
+    src: files/PIEPasswordFinder/
+    dest: C:\PIEPasswordFinder
+
+- name: Change read only attribute for PIEPasswordFinder directory
+  win_command: attrib -r +s C:\PIEPasswordFinder    

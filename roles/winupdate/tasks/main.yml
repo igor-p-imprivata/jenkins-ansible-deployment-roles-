@@ -1,0 +1,22 @@
+---
+# tasks file for winupdate
+- name:  Install Security updates
+  win_updates:
+    category_names:
+      - SecurityUpdates
+      - UpdateRollups
+      #          - CriticalUpdates
+      #          - UpdateRollups
+      #        reboot: yes
+      #        reboot_timeout: 4000
+    debugger: on_failed
+
+- name: Install Critical updates
+  win_updates:
+    category_names:
+        #          - SecurityUpdates
+      - CriticalUpdates
+      #          - UpdateRollups
+    reboot: yes
+    reboot_timeout: 4500
+    debugger: on_failed

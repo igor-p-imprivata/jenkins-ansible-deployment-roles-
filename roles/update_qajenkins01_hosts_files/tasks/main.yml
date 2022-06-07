@@ -1,0 +1,129 @@
+---
+# tasks file for update qajenkins servers hosts files
+- name: Add QAJEnkins01 Master server IP to host file 
+  win_hosts:
+    state: present
+    canonical_name: qajenkins01
+    ip_address: 10.153.16.67
+    action: add
+    aliases:
+      - qajenkins01.imprivata.com
+
+- name: Add qajensl-wint-p2  server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-wint-p2
+    ip_address: 10.153.15.131
+    action: add
+    aliases:
+      - qajensl-wint-p2.imprivata.com
+
+- name: Add qajensl-wint-p3 server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-wint-p3
+    ip_address: 10.153.15.133
+    action: add
+    aliases:
+      - qajensl-wint-p3.imprivata.com
+
+- name: Add qajensl-wint-p4 server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-wint-p4
+    ip_address: 10.153.15.135
+    action: add
+    aliases:
+      - qajensl-wint-p4.imprivata.com
+
+- name: Add qajensl-wint-p5 server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-wint-p5
+    ip_address: 10.153.15.124
+    action: add
+    aliases:
+      - qajensl-wint-p5.imprivata.com
+
+- name: Add qajensl-wint-p6 server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-wint-p6
+    ip_address: 10.153.15.132
+    action: add
+    aliases:
+      - qajensl-wint-p6.imprivata.com
+
+- name: Add qajensl-wint-p7 server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-wint-p7
+    ip_address: 10.153.15.136
+    action: add
+    aliases:
+      - qajensl-wint-p7.imprivata.com
+
+- name: Add qajensl-wint-p8 server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-wint-p8
+    ip_address: 10.153.15.137
+    action: add
+    aliases:
+      - qajensl-wint-p8.imprivata.com
+
+- name: Add qajensl-win7-01 server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-win7-01
+    ip_address: 10.153.16.68
+    action: add
+    aliases:
+      - qajensl-win7-01.imprivata.com
+
+- name: Add qajensl-win7-2 server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-win7-2
+    ip_address: 10.153.16.69
+    action: add
+    aliases:
+      - qajensl-win7-2.imprivata.com
+
+- name: Add qajensl-win7-p1 server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-win7-p1
+    ip_address: 10.153.16.63
+    action: add
+    aliases:
+      - qajensl-win7-p1.imprivata.com
+
+- name: Add qajensl-win7-p2 server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-win7-p2
+    ip_address: 10.153.16.137
+    action: add
+    aliases:
+      - qajensl-win7-p2.imprivata.com
+
+- name: Add qajensl-win7-p3 server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-win7-p3
+    ip_address: 10.153.16.142
+    action: add
+    aliases:
+      - qajensl-win7-p3.imprivata.com
+
+- name: Add qajensl-win7-p4  server IP to host file
+  win_hosts:
+    state: present
+    canonical_name: qajensl-win7-p4
+    ip_address: 10.153.16.143
+    action: add
+    aliases:
+      - qajensl-win7-p4.imprivata.com
+
+

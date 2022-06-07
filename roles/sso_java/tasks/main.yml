@@ -1,0 +1,35 @@
+---
+# tasks file for SSO Server Client
+
+- name: Copy SSO Java C:\Java
+  win_copy:
+    src: files/Java/
+    dest: C:\Java
+
+- name: Allow Users
+  win_acl:
+    path: C:\Java
+    user: Users
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Allow java-admin
+  win_acl:
+    path: C:\Java
+    user: java-admin
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Allow administrator
+  win_acl:
+    path: C:\Java
+    user: administrator
+    rights: Read,Write,Modify,FullControl,Delete
+    type: allow
+    state: present    
+
+- name: Change read only attribute for Java directory
+  win_command: attrib -r +s C:\Java
+

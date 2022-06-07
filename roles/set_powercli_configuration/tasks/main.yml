@@ -1,0 +1,6 @@
+---
+# tasks file for set_powercli_configuration
+- name: Set PowerCLI Configuration
+  win_command: powershell.exe -
+  args:
+    stdin: Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -confirm:$false

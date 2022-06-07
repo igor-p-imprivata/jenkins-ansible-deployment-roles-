@@ -1,0 +1,14 @@
+---
+# tasks file for reset_computer_password_service
+- name: Create scheduled task to reset computer password on reboot
+  win_scheduled_task:
+    name: PasswordReset
+    description: reset computer password at boot time
+    actions:
+    - path: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+      arguments: Reset-ComputerMachinePassword
+    triggers:
+    - type: boot
+    username: SYSTEM
+    run_level: limited
+    state: present

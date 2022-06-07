@@ -1,0 +1,5 @@
+---
+# tasks file for reboot_server
+- name: reboot server
+  win_reboot:
+    reboot_timeout: 3600      
