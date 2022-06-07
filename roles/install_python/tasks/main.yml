@@ -1,0 +1,15 @@
+---
+# tasks file for install_python
+- name: Install Python 3.6.6 32
+  win_chocolatey:
+    name: python
+    version: '3.6.6'
+    #version: '3.6.6'
+    architecture: x86
+    state: present
+    ##source: http://10.153.138.155/chocolatey/Packages
+    # force: yes
+
+- name: Adding "pywin32_system32" to system PATH
+  win_path:
+    elements: C:\Python36\Lib\site-packages\pywin32_system32

@@ -1,0 +1,12 @@
+---
+# tasks file for target_dir
+- name: Create directory to host required installable artifacts
+  win_file:
+    path: C:\TracePasswordFinder
+    state: directory
+
+# tasks file for copy_sources
+- name: Copy  files to  target
+  win_copy:
+    src: files/
+    dest: C:\TracePasswordFinder

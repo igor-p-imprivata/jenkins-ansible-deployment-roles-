@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0076)http://public.perforce.com/public/perforce/utils/reviewd/reviewer/index.html -->
+<HTML><HEAD><TITLE>Perforce Public Depot: Java Reviewer Project</TITLE><!-- no htdig-keywords tag in this file --><!-- no keywords tag in this file -->
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1"><LINK 
+href="Perforce%20Public%20Depot%20Java%20Reviewer%20Project_files/pure.css" 
+type=text/css rel=stylesheet><LINK 
+href="Perforce%20Public%20Depot%20Java%20Reviewer%20Project_files/depot.css" 
+type=text/css rel=stylesheet>
+<META content="MSHTML 6.00.6000.16525" name=GENERATOR></HEAD>
+<BODY><!-- div for entire page -->
+<DIV id=outer>
+<DIV id=page-top><!-- frames the logo and search --><!-- logo -->
+<DIV id=logo><A href="http://www.perforce.com/"><IMG height=50 
+alt="Perforce Public Depot" 
+src="Perforce%20Public%20Depot%20Java%20Reviewer%20Project_files/site_logo.gif" 
+width=219></A> </DIV>
+<DIV id=search><!-- search section -->
+<FORM action=http://www.google.com/search method=get>
+<DIV><!-- needed so invisible field will validate --><INPUT type=hidden 
+value=public.perforce.com name=sitesearch> </DIV><!-- silly invisible field div -->
+<UL class=search-box>
+  <LI class=left><INPUT class=search-form size=40 name=q> </LI>
+  <LI class=middle><INPUT class=search-button type=submit value=Search> </LI>
+  <LI class=right style="COLOR: black">Powered by Google </LI></UL></FORM><!-- top navbar search form --></DIV><!-- end search section --></DIV><!-- end div id page-top --><!-- start site content -->
+<DIV id=main-body><!-- navbars -->
+<DIV id=navbar-outer>
+<UL class=navbar>
+  <LI class=nav-top><A title=Home 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/index.html">Public 
+  Depot Home</A> 
+  <LI><A title="Project Tree" 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/sitemap.html">Project 
+  Tree</A> <!-- li><a href="search.html" title="Search">Search</a></li -->
+  <LI><A title="How to Browse" 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/browse.html">Browse</A> 
+
+  <LI><A title="How to Contribute" 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/contribute.html">Contribute</A> 
+<!-- li><a href="review.html" title="Change Review Email">Change Review Email</a></li --></LI></UL></DIV><!-- end id.navbars -->
+<DIV id=content-outer>
+<DIV id=content><!-- Content starts here -->
+<H1>Perforce Java Reviewer Project<BR><SUB>com.perforce.reviewer.*</SUB></H1><!-- ABOUT THIS PROJECT --><A 
+name=about></A>
+<H3>About This Project</H3>
+<DL class=project>
+  <DT>Content 
+  <DD>
+  <P><A 
+  href="http://public.perforce.com:8080/@ra=s@/public/perforce/api/java/reviewer/">Source</A>, 
+  <A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/dist/docs/index.html">documentation</A>, 
+  and <A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/dist/reviewer.jar">JAR</A> 
+  for the Perforce Java Reviwer, a Java API based extensible perforce server 
+  changelist reviewer. The package provide a Reviewer class and a ChangeListener 
+  interface. The Reviewer class monitors changes submitted to the perforce 
+  server and calls the appropriate ChangeListener implementation. A default 
+  mailer implementation is included. </P></DD>
+  <DT>Curator 
+  <DD>
+  <P>David Markley. Please email <A 
+  href="mailto:david@markley.cc">david@markley.cc</A> if you have submitted 
+  contributions you'd like published, if you have ideas for enhancement, or if 
+  you have preferences among the potential enhancements listed below. </P></DD>
+  <DT>Getting Started 
+  <DD>
+  <P>The default action taken on each changelist is to send e-mail to those 
+  users who's Reviews specification matches the current change. The e-mail sent 
+  out will contain both a text-only and HTML version of the information. This 
+  has been very useful for including links to additional information. The format 
+  of the message can be modified in the <A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/dist/docs/com/perforce/reviewer/doc-files/reviewer.conf">configuration 
+  file</A>. </P>
+  <P>To run the reviewer you must have the <A 
+  href="http://java.sun.com/products/javamail">JavaMail</A> and <A 
+  href="http://java.sun.com/products/javabeans/glasgow/jaf.html">Activation</A> 
+  packages from Sun. When you have downloaded them, make sure mail.jar, 
+  activation.jar, and p4.jar (from the <A 
+  href="http://public.perforce.com/public/perforce/api/java/p4package/index.html">Perforce 
+  Java API</A>) are in the same directory as the <A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/dist/reviewer.jar">reviewer.jar</A> 
+  </P>
+  <P>You will need to create a counter that the reviewer will use to monitor 
+  changes submitted to the perforce server. The default name the reviewer will 
+  use is 'review'. <SPAN class=redtxt>Make sure that the value of this counter 
+  is set to the current value of the 'change' counter. If you do not do this, be 
+  prepared to face angry users when they receive e-mail for every change in your 
+  server!</SPAN> To create and set the counter, you should execute the following 
+  steps: </P><PRE>                  % p4 counters
+                  change = 1669
+                  job = 21
+                  journal = 46
+                  % p4 counter review 1669
+                  Counter review set.
+                  % p4 counters
+                  change = 1669
+                  job = 21
+                  journal = 46
+                  review = 1669
+                  </PRE>
+  <P>Notice that the value for the 'change' counter is used to set the 'review' 
+  counter.</P>
+  <P>Before running the reviewer, you will need to modify its <A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/dist/docs/com/perforce/reviewer/doc-files/reviewer.conf">configuration 
+  file</A>. That file contains documenation on the each of the parameters that 
+  can be specified. Save the file to /etc and modify it to fit your local 
+  environment. </P>
+  <P>As part of the reviwer.jar file, this application can be started on the 
+  command line with Java 1.2 or better using the format:</P><PRE>    java -jar reviewer.jar /etc/reviewer.conf &amp; </PRE>
+  <P>The <A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/dist/docs/com/perforce/reviewer/doc-files/reviewer.conf">configuration 
+  file</A> is the only argument accepted on the command line. This file 
+  specifies the Perforce environment and how each changelist is handled. 
+  </P></DD></DL><!-- QUICKLINKS -->
+<DIV class=quickLinks>
+<UL>
+  <LI><A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/index.html#about">About<BR>Project</A> 
+  </LI>
+  <LI><A 
+  href="http://public.perforce.com:8080/@ra=s@/guest/david_markley/reviewer/">Source<BR>Files</A> 
+  </LI>
+  <LI><A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/dist/reviewer.jar">JAR<BR>File</A> 
+  </LI>
+  <LI><A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/dist/docs/index.html">API<BR>Documentation</A> 
+  </LI>
+  <LI><A 
+  href="http://public.perforce.com/public/perforce/api/java/p4package/index.html">P4Package<BR>Project</A> 
+  </LI>
+  <LI><A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/dist/docs/com/perforce/reviewer/doc-files/LICENSE.TXT"><BR>LICENSE.TXT</A> 
+  </LI>
+  <LI><A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/index.html#updates">Project<BR>Updates</A> 
+  </LI></UL></DIV><!-- SOURCE FILES --><A 
+name=http://public.perforce.com:8080/@ra=s@/guest/david_markley/reviewer/></A>
+<H3>Source Files</H3>
+<DL class=srcfiles>
+  <DD>Click <A 
+  href="http://public.perforce.com:8080/@ra=s@/guest/david_markley/reviewer/">here</A> 
+  to access source files by David Markley. </DD></DL><!-- JAR FILE --><A 
+name=dist/reviewer.jar></A>
+<H3>JAR File</H3>
+<DL class=jarfile>
+  <DD>Click <A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/dist/reviewer.jar">here</A> 
+  for the Java Archive File (JAR File). </DD></DL><!-- API DOCUMENTATION --><A 
+name=dist/docs/index.html></A>
+<H3>API Documentation</H3>
+<DL class=apidoc>
+  <DD>Click <A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/dist/docs/index.html">here</A> 
+  for Package com.perforce.reviewer Documentation. </DD></DL><!-- P4PACKAGE PROJECT --><A 
+name=http://public.perforce.com/public/perforce/api/java/p4package/index.html></A>
+<H3>P4Package Project</H3>
+<DL class=p4packproj>
+  <DD>Click <A 
+  href="http://public.perforce.com/public/perforce/api/java/p4package/index.html">here</A> 
+  for the P4Package Java API Project. </DD></DL><!-- LICENSE.TXT --><A 
+name=dist/docs/com/perforce/reviewer/doc-files/LICENSE.TXT></A>
+<H3>LICENSE.TXT</H3>
+<DL class=licensetxt>
+  <DD>Click <A 
+  href="http://public.perforce.com/public/perforce/utils/reviewd/reviewer/dist/docs/com/perforce/reviewer/doc-files/LICENSE.TXT">here</A> 
+  for the license text. </DD></DL><!-- PROJECT UPDATES --><A name=#updates></A>
+<H3>Project Updates</H3>
+<DL class=projupdates>
+  <DD>
+  <TABLE class="proj update" cellSpacing=0>
+    <TBODY>
+    <TR>
+      <TH>Date</TH>
+      <TH>Update</TH></TR>
+    <TR class=zebra>
+      <TD>April 23, 2002 </TD>
+      <TD>Initial publication of the Java Reviewer. </TD></TR>
+    <TR>
+      <TD>August 12, 2002 </TD>
+      <TD>
+        <UL>
+          <LI>Added support for jobs fixed. 
+          <LI>Corrected problems with missing formats in the configuration file. 
+          </LI></UL></TD></TR></TBODY></TABLE></DD></DL>
+<DIV class=hr-dotted></DIV>
+<P class=stored-file>You're browsing a file stored as <CODE>$Id: 
+//public/perforce/api/index.html#6 $</CODE> </P><!-- Content ends here --></DIV><!-- id content --></DIV><!-- id content-outer --></DIV><!-- id main-body --><!-- Copyright and bottom bar -->
+<DIV id=copyright>Copyright © 2001 Perforce 
+</DIV></DIV><!-- id outer --></BODY></HTML>

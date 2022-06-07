@@ -1,0 +1,7 @@
+---
+# tasks file for "search Service" disable
+- name: Set Windows Search  service startup mode to disabled and stopx` it
+  win_service:
+    name: WSearch
+    start_mode: disabled
+    state: stopped

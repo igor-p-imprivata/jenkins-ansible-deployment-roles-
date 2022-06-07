@@ -1,0 +1,12 @@
+---
+# tasks file for WSManCredSSP
+- name: Enable WSManCredSSP
+  win_command: powershell.exe -
+  args:
+    stdin: Enable-WSManCredSSP -Role Server -Force      
+
+
+- name: Set Path
+  win_command: powershell.exe -
+  args:
+    stdin: Set-Item -Path "WSMan:\localhost\Service\Auth\CredSSP" -Value $true      

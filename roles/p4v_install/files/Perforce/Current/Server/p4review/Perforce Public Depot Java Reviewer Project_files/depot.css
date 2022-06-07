@@ -1,0 +1,60 @@
+BODY {
+	BACKGROUND: url(../images/depot_tab.gif) no-repeat center top
+}
+#outer {
+	MARGIN: 20px auto 0px
+}
+P.stored-file {
+	MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 0px; COLOR: #c1c1c1
+}
+CODE {
+	FONT-SIZE: 110%; FONT-FAMILY: monospace
+}
+PRE {
+	FONT-SIZE: 110%; FONT-FAMILY: monospace
+}
+UL.site-one {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN-LEFT: 40px; PADDING-TOP: 0px
+}
+UL.site-one LI {
+	LIST-STYLE-TYPE: none
+}
+.site-two {
+	PADDING-LEFT: 20px; PADDING-BOTTOM: 10px; MARGIN-LEFT: 20px; BORDER-LEFT: #d1d1d1 1px solid
+}
+.site-three {
+	PADDING-LEFT: 20px; PADDING-BOTTOM: 10px; MARGIN-LEFT: 20px; BORDER-LEFT: #d1d1d1 1px solid
+}
+.site-jam {
+	MARGIN-TOP: 40px
+}
+.site-guest {
+	MARGIN-TOP: 40px
+}
+DL.utilities DT {
+	PADDING-BOTTOM: 2px; FONT-FAMILY: monospace
+}
+DL.utilities DD {
+	MARGIN-BOTTOM: 15px; MARGIN-LEFT: 20px
+}
+DL.project DT {
+	FONT-WEIGHT: bold; FLOAT: left; MARGIN-RIGHT: 20px
+}
+DL.project DD {
+	MARGIN-BOTTOM: 20px; MARGIN-LEFT: 70px
+}
+#copyright {
+	CLEAR: both; PADDING-RIGHT: 10px; BORDER-TOP: #d1d1d1 1px solid; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 10px; BACKGROUND: #f7f7f7; PADDING-BOTTOM: 4px; COLOR: #c1c1c1; PADDING-TOP: 4px; BORDER-BOTTOM: #d1d1d1 1px solid; FONT-FAMILY: "Lucida Grande", Tahoma, Arial, sans-serif; TEXT-ALIGN: right
+}
+.disclaimer {
+	PADDING-RIGHT: 10px; BORDER-TOP: #d1d1d1 1px solid; PADDING-LEFT: 10px; FONT-SIZE: 90%; BACKGROUND: #f7f7f7; PADDING-BOTTOM: 10px; MARGIN: 20px 0px 0px; COLOR: #454545; PADDING-TOP: 10px; BORDER-BOTTOM: #d1d1d1 1px solid
+}
+.disclaimer-warning {
+	MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 0px
+}
+SPAN.red {
+	COLOR: red
+}
+SPAN.green {
+	COLOR: green
+}

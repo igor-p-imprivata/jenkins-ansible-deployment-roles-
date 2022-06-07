@@ -1,0 +1,6 @@
+---
+# tasks file for install_p4
+- name: Install p4
+  win_chocolatey:
+    name: p4
+    #version: 73.0.3683

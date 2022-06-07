@@ -1,0 +1,6 @@
+---
+# tasks file for check_java_version
+- name: Checking Java version
+  win_command: powershell.exe -
+    args:
+      stdin: java -version

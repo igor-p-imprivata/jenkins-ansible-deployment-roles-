@@ -1,0 +1,16 @@
+---
+# tasks file for accept_eula_reg
+- name: Current User Accept EULA registry setting
+  win_regedit:
+    path: HKCU:\SOFTWARE\Sysinternals
+    name: EulaAccepted
+    data: 1
+    type: dword
+
+- name: Global User Accept EULA registry setting
+  win_regedit:
+    path: HKU:\.DEFAULT\SOFTWARE\Sysinternals
+    name: EulaAccepted
+    data: 1
+    type: dword
+

@@ -1,0 +1,7 @@
+---
+# tasks file for "Network Service" startup
+- name: Set Network Connection service startup mode to auto and start it
+  win_service:
+    name: Netman
+    start_mode: auto
+    state: started

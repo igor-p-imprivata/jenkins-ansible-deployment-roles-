@@ -1,0 +1,46 @@
+---
+# tasks file for dsc-rdp-install
+- name: Install RDS broker feature
+  win_dsc:
+    resource_name: xRDServer
+    Role: RDS-Connection-Broker
+    Server: "{{ connection_broker_server }}"
+    ConnectionBroker: "{{ connection_broker_server }}"
+    GatewayExternalFqdn: "{{ external_gateway_rds_server }}" 
+    #Server: "w16apptest-01"
+    #
+#- name: Install RDS Web Access feature
+#  win_dsc:
+#    resource_name: xRDServer
+#    Role: RDS-Web-Access
+#    Server: "{{ web_access_server }}"
+#    ConnectionBroker: "{{ connection_broker_server }}"
+#    GatewayExternalFqdn: "{{ external_gateway_rds_server }}"
+#
+#- name: Install RDS Web Access feature
+#  win_dsc:
+#    resource_name: xRDServer
+#    Role: RDS-RD-Server
+#    Server: "{{ web_access_server }}"
+#    ConnectionBroker: "{{ connection_broker_server }}"
+#    GatewayExternalFqdn: "{{ external_gateway_rds_server }}"
+
+
+#- name: Install RDS External Gateway
+#  win_dsc:
+#    resource_name: xRDServer
+#    Role: RDS-Gateway
+#    Server: "{{ rds_server }}"
+#    ConnectionBroker: "{{ connection_broker_server }}"
+#    GatewayExternalFqdn: "{{ external_gateway_rds_server }}"
+
+#- name: reboot server
+#  win_reboot:
+
+
+#- name: Install RDS Session Host component
+#  win_dsc:
+#    resource_name: xRDSessionDeployment
+#    ConnectionBroker: "{{ connection_broker_server }}"
+#    WebAccessServer: "{{ web_access_server }}"
+#    SessionHost: "{{ session_host_server }}"

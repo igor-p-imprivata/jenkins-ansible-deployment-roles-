@@ -1,0 +1,54 @@
+---
+# tasks file for install_rds
+- name: Install RDS
+  win_feature:
+    name: Remote-Desktop-Services
+    state: present
+  register: win_feature
+
+- name: reboot if installing RDS feature requires it
+  win_reboot:
+  when: win_feature.reboot_required
+
+- name: Install RDS-Connection-Broker role
+  win_feature:
+    name: RDS-Connection-Broker
+    state: present
+  register: win_feature
+
+- name: reboot if installing RDS-Connection-Broker requires it
+  win_reboot:
+  when: win_feature.reboot_required
+
+
+- name: Install RDS-Web-Access role
+  win_feature:
+    name: RDS-Web-Access
+    state: present
+  register: win_feature
+
+- name: reboot if installing RDS-Web-Access requires it
+  win_reboot:
+  when: win_feature.reboot_required
+
+
+#- name: Install Remote Desktop Licensing
+#  win_feature:
+#    name: RDS-Licensing-UI
+#    state: present
+#  register: win_feature
+
+#- name: reboot if installing RDS licensing requires it
+#  win_reboot:
+#  when: win_feature.reboot_required
+
+
+- name: Install RDS-RD role
+  win_feature:
+    name: RDS-RD-Server
+    state: present
+  register: win_feature
+
+- name: reboot if installing RDS-RD requires it
+  win_reboot:
+  when: win_feature.reboot_required

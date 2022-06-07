@@ -1,0 +1,6 @@
+---
+# tasks file for enable_PSRemoting
+- name: Enable PSRemoting
+  win_command: powershell -
+  args:
+    stdin: Enable-PSRemoting -Force

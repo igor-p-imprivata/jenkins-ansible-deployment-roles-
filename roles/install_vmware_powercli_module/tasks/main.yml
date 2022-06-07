@@ -1,0 +1,6 @@
+---
+# tasks file for install_vmware_powercli_module
+- name: Install VMware PowerCLI
+  win_psmodule: 
+    name: VMware.PowerCLI
+    state: present

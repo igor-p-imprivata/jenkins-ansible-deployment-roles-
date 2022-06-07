@@ -1,0 +1,10 @@
+---
+# tasks file for admin_user
+- name: Update "admin" user
+  win_user:
+    name: administrator
+    password: {ADMIN_PASS}
+    state: present
+    password_never_expires: true
+    groups:
+      - Administrators

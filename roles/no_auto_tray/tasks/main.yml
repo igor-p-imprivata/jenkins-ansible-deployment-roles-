@@ -1,0 +1,8 @@
+---
+# tasks file for no_auto_tray
+- name: NoAutoTrayNotify registry setting
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer
+    name: NoAutoTrayNotify
+    data: 1
+    type: dword

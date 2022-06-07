@@ -1,0 +1,11 @@
+---
+# tasks file for join_workgroup
+- name: Join workgroup
+  win_domain_membership:
+    workgroup_name: test-tmp
+    domain_admin_user: '{{win_admin_user}}'
+    domain_admin_password: '{{win_admin_password}}'
+    state: workgrop
+
+- reboot: Reboot if required
+  when: domain_state.reboot_required

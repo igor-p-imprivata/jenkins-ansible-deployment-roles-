@@ -1,0 +1,10 @@
+---
+# tasks file for java-admin_user
+- name: Create "java-admin" user
+  win_user:
+    name: java-admin
+    password: Iomaguire1
+    state: present
+    password_never_expires: true
+    groups:
+      - Administrators

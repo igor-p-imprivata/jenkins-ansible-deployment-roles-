@@ -1,0 +1,6 @@
+---
+# tasks file for copy_file
+- name: Copy "pip.ini" to "C:\ProgramData\pip" directory
+  win_copy:
+      src: files/pip.ini
+      dest: C:\ProgramData\pip\
