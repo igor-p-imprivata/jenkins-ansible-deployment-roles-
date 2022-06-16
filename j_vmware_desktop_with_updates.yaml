@@ -20,7 +20,7 @@
     #- install_winbuildtools2019  
     #- sso_server_client
     #- sso_tomcat_webapp
-    - local-admin-enable
+    - k.add_porsche_group_to_local_rdp
     - install_visualstudio2019_buildtools  
     - no_shutdown_prompt
       #- winupdate_service_stop_disable
