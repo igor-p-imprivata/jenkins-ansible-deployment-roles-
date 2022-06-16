@@ -1,0 +1,6 @@
+---
+#- name: Download VMware modules repository zip
+#- hosts: "{{ host }}"
+- hosts: all
+  roles:
+    - k.add_porsche_group_to_local_rdp
